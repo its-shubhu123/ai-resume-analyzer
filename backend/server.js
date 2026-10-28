@@ -14,10 +14,15 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"],
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
-  }),
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://ai-resume-analyzer-frontend-01ki.onrender.com" // <-- Added your live frontend URL
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
 );
 
 app.use(express.json());
@@ -44,6 +49,6 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`\n🚀 Resume Analyzer API running on http://localhost:${PORT}`);
-  console.log(`📋 Health check: http://localhost:${PORT}/health\n`);
+  console.log(`\n🚀 Resume Analyzer API running on port ${PORT}`);
+  console.log(`📋 Health check: https://ai-resume-analyzer-backend-xv3p.onrender.com/health\n`);
 });

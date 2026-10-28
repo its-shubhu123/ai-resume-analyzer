@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL || "https://ai-resume-analyzer-backend-xv3p.onrender.com";
 
 /**
  * Sends a resume PDF + optional job description to the backend for analysis.
