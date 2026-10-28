@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'DM Sans', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-900 text-ink-100 antialiased;
+    background-image: linear-gradient(rgba(144,144,184,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(144,144,184,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-800;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-500 rounded-full;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-ink-800/60 backdrop-blur-xl border border-ink-700/50;
+  }
+
+  .glass-light {
+    @apply bg-ink-700/30 backdrop-blur-md border border-ink-600/30;
+  }
+
+  .btn-primary {
+    @apply bg-volt-400 text-ink-900 font-semibold px-6 py-3 rounded-xl
+           hover:bg-volt-300 active:scale-95 transition-all duration-150
+           shadow-[0_0_24px_rgba(200,255,58,0.25)] hover:shadow-[0_0_32px_rgba(200,255,58,0.4)];
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
+           bg-coral-500/15 text-coral-400 border border-coral-500/25;
+  }
+
+  .score-ring {
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Font display overrides */
+h1, h2, h3, h4, h5 {
+  font-family: 'Syne', sans-serif;
+}
